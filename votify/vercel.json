@@ -1,9 +1,9 @@
 {
     "rewrites": [
-      { "source": "/(.*)", "destination": "/api" }
+      { "source": "/(.*)", "destination": "/backend/server.js" }
     ],
     "functions": {
-      "api/index.js": {
+      "backend/server.js": {
         "memory": 1024,
         "maxDuration": 10
       }
