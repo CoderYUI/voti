@@ -11,11 +11,7 @@ app.use(express.json());
 const PORT = process.env.PORT || 3000;
 
 // Serve static files
-if (process.env.VERCEL) {
-  app.use(express.static(path.join(__dirname, '../frontend')));
-} else {
-  app.use(express.static(path.join(__dirname, '../frontend')));
-}
+app.use(express.static(path.join(__dirname, '../frontend')));
 
 // Serve home.html as the default page
 app.get('/', (req, res) => {
@@ -28,10 +24,14 @@ app.post('/api/create-poll', (req, res) => {
   res.send({ message: 'Poll created successfully' });
 });
 
+// Handle all other routes by serving index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/home.html'));
+});
+
 // For Vercel serverless deployment
 if (process.env.VERCEL) {
   module.exports = app;
 } else {
-  // Start Server locally
   app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
 }
