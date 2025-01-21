@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Votify - Join</title>
+  <!-- Include your CSS files as needed -->
+  <link rel="stylesheet" href="/styles/navbar.css">
+  <link rel="stylesheet" href="/styles/footer.css">
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/sidebar.css">
+  <link rel="stylesheet" href="/styles/theme.css">
+  <link rel="stylesheet" href="/styles/join.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/Votify_Logo.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.4/lottie.min.js"></script>
+</head>
+<body>
+  <!-- Navbar dynamically loaded via script.js -->
+  <div id="navbar"></div>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar close">
+    <button class="close-btn" onclick="toggleSidebar()">×</button>
+    <nav>
+      <a href="/home.html">Home</a>
+      <a href="#" onclick="showFooter()">Create</a>
+      <a href="./join.html">Join</a>
+      <a href="#" onclick="showFooter()">Help</a>
+      <a href="#" onclick="showFooter()">Team</a>
+      <label class="switch">
+        <input type="checkbox" id="toggle-dark-mode-sidebar">
+        <span class="slider round"></span>
+      </label>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <section class="join-section">
+      <h1>Join an ongoing poll using a room link or ID.</h1>
+      <p>Participate in the event and see the results live!</p>
+      <div class="input-container">   
+        <input type="text" id="input-id" class="input-field" placeholder=" " />
+        <label for="input-id" class="floating-label">ID</label>
+      </div>
+      <div class="divider"></div>
+      <div class="input-container">   
+        <input type="text" id="input-link" class="input-field" placeholder=" " />
+        <label for="input-link" class="floating-label">Link </label>
+      </div>
+      <!-- Join Button -->
+      <div class="button-container">
+        <button type="button" id="join-button" class="join-button" onclick="handleJoinClick()">Join</button>
+      </div>
+    </section>
+    <!-- Lottie Animations -->
+    <div class="lottie-container" id="lottie-left"></div>
+    <div class="lottie-container" id="lottie-right"></div>
+  </main>
+
+  <!-- Footer dynamically loaded via script.js -->
+  <div id="footer"></div>
+
+  <!-- Main Script -->
+  <script src="/script.js"></script>
+  <script>
+    // Load Lottie animations
+    lottie.loadAnimation({
+      container: document.getElementById('lottie-left'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: './assets/lottiePoll1.json' // Path to your first Lottie file
+    });
+    
+    lottie.loadAnimation({
+      container: document.getElementById('lottie-right'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: './assets/lottiePoll1.json' // Path to your second Lottie file
+    });
+
+    // Function to handle Join button click
+    function handleJoinClick() {
+      const id = document.getElementById('input-id').value;
+      const link = document.getElementById('input-link').value;
+
+      // For future backend developer:
+      // Use the `id` and `link` variables to send a request to the backend to join the poll.
+      console.log(`Joining poll with ID: ${id} and Link: ${link}`);
+      // Add your backend integration code here.
+    }
+  </script>
+</body>
+</html>

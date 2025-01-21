@@ -1,0 +1,187 @@
+/* join.css (modified to apply the theme from theme.css) */
+
+/* Import theme variables */
+@import url("theme.css");
+
+/* Global Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base Body Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  color: var(--text-color);          /* Replaced #333 with theme variable */
+  background: var(--background-color); /* Replaced #f9f9f9 with theme variable */
+  position: relative;
+}
+
+/* Main Section */
+main {
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.join-section {
+  text-align: center;
+  margin: 10px 0;
+  padding: 0 20px;
+}
+
+.join-section h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--text-color); /* Use theme text color */
+}
+
+.join-section p {
+  font-size: 16px;
+  margin-bottom: 30px;
+  color: var(--secondary-text-color); /* Example: use a secondary text color */
+}
+
+/* Input Container */
+.input-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.floating-label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: gray;
+  transition: 0.2s ease;
+  pointer-events: none;
+}
+
+.input-field {
+  width: 100%;
+  height: 60px;
+  border: 5px solid var(--secondary-color); /* Increased border thickness */
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 18px;
+  outline: none;
+  background-color: var(--card-background-color);
+  color: var(--text-color);
+}
+
+.input-field:focus {
+  border-color: var(--text-color); /* Focus border could use text color or another variable */
+}
+
+.input-field:focus + .floating-label,
+.input-field:not(:placeholder-shown) + .floating-label {
+  top: -10px;
+  font-size: 16px;
+  color: var(--text-color);
+  background: var(--background-color);
+  padding: 0 5px;
+}
+
+/* Divider Styling */
+.divider {
+  width: 50%;
+  height: 6px;
+  background: var(--divider-background); 
+  border-radius: 3px;
+  margin: 30px auto;
+}
+
+/* Button Container */
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.join-button {
+  background-color: var(--primary-button-color);
+  color: var(--tertiary-text-color);
+  border: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.join-button:hover {
+  background-color: var(--secondary-button-color);
+}
+
+/* Lottie Container Styling */
+.lottie-container {
+  position: absolute;
+  bottom: 0;
+  width: 20%;
+  height: auto;
+  max-width: 250px;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+#lottie-left {
+  left: 0;
+  transform: scaleX(-1);
+}
+
+#lottie-right {
+  right: 0;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .join-section h1 {
+    font-size: 20px;
+  }
+
+  .join-section p {
+    font-size: 14px;
+  }
+
+  .input-container {
+    max-width: 300px;
+  }
+
+  .input-field {
+    height: 50px;
+    padding: 8px;
+    font-size: 16px;
+  }
+
+  .lottie-container {
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .join-section h1 {
+    font-size: 18px;
+  }
+
+  .join-section p {
+    font-size: 12px;
+  }
+
+  .input-container {
+    max-width: 250px;
+  }
+
+  .input-field {
+    height: 45px;
+    padding: 6px;
+    font-size: 14px;
+  }
+
+  .lottie-container {
+    max-width: 120px;
+  }
+}
