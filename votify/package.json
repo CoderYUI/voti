@@ -4,19 +4,12 @@
   "description": "Votify - An online polling system.",
   "main": "backend/server.js",
   "engines": {
-    "node": "14.x"
+    "node": "18.x"
   },
   "scripts": {
-    "start": "node backend/server.js",
-    "build": "echo 'No build step required'",
-    "dev": "vercel dev",
-    "deploy": "vercel deploy --prod"
+    "start": "node backend/server.js"
   },
   "dependencies": {
     "express": "^4.18.2"
-  },
-  "devDependencies": {
-    "vercel": "^32.3.0"
-  },
-  "private": true
+  }
 }
