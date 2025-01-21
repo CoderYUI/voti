@@ -3,10 +3,10 @@ const path = require('path');
 const app = express();
 
 app.use(express.json());
-app.use(express.static('frontend'));
+app.use(express.static(path.join(__dirname, '../frontend')));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/home.html'));
+  res.sendFile(path.join(__dirname, '../frontend/home.html'));
 });
 
 app.post('/api/create-poll', (req, res) => {
@@ -15,11 +15,7 @@ app.post('/api/create-poll', (req, res) => {
 
 // Handle all routes
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/home.html'));
+  res.sendFile(path.join(__dirname, '../frontend/home.html'));
 });
 
-if (require.main === module) {
-  app.listen(3000);
-} else {
-  module.exports = app;
-}
+module.exports = app;
