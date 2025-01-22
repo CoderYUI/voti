@@ -1,12 +1,9 @@
 
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/backend/server.js" }
+  "builds": [
+    { "src": "backend/server.js", "use": "@vercel/node" }
   ],
-  "functions": {
-    "backend/server.js": {
-      "memory": 1024,
-      "maxDuration": 10
-    }
-  }
+  "routes": [
+    { "src": "/(.*)", "dest": "backend/server.js" }
+  ]
 }
